@@ -20,8 +20,22 @@ func ParseFile(filename string) (*graph.Colony, error) {
 	}
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
+		// remove leading spaces
 		line := scanner.Text()
 		line = strings.TrimSpace(line)
+		// remove empty lines
+		if line == "" {
+			continue
+		}
+		if line == "##start" {
+			continue
+		}
+		if line == "##end" {
+			continue
+		}
+		if strings.HasPrefix(line, "#") {
+			continue
+		}
 
 	}
 	return colony, nil
