@@ -19,6 +19,10 @@ func ParseFile(filename string) (*graph.Colony, error) {
 		Rooms: make(map[string]*graph.Room),
 	}
 	scanner := bufio.NewScanner(file)
+	nextIsStart := false
+	nextIsEnd := false
+	_ = nextIsStart
+	_ = nextIsEnd
 	for scanner.Scan() {
 		// remove leading spaces
 		line := scanner.Text()
@@ -28,9 +32,11 @@ func ParseFile(filename string) (*graph.Colony, error) {
 			continue
 		}
 		if line == "##start" {
+			nextIsStart = true
 			continue
 		}
 		if line == "##end" {
+			nextIsEnd = true
 			continue
 		}
 		if strings.HasPrefix(line, "#") {
