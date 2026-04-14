@@ -1,7 +1,5 @@
 package graph
 
-
-
 type Room struct {
 	Name string
 
@@ -13,8 +11,6 @@ type Room struct {
 
 	Connections []*Room
 }
-
-
 
 type Colony struct {
 	Rooms map[string]*Room
@@ -30,4 +26,5 @@ type Ant struct {
 	ID          int
 	CurrentRoom []*Room
 	Path        []*Room
+	Step        int
 }
