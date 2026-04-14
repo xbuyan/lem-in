@@ -1,6 +1,6 @@
 package graph
 
-// Room represents a single room in the ant colony
+
 
 type Room struct {
 	Name string
@@ -14,7 +14,7 @@ type Room struct {
 	Connections []*Room
 }
 
-// Colony represents the entire ant farm
+
 
 type Colony struct {
 	Rooms map[string]*Room
